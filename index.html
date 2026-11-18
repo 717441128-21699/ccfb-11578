@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>地铁行车核心仿真 · CBTC</title>
+    <link rel="stylesheet" href="/src/ui/style.css" />
+  </head>
+  <body>
+    <canvas id="gl"></canvas>
+
+    <div id="hud-left" class="panel">
+      <div class="row big"><span id="hud-speed">0</span><span class="unit">km/h</span></div>
+      <div class="row">手柄 牵引 <b id="hud-traction">0%</b></div>
+      <div class="row">手柄 制动 <b id="hud-brake">0%</b></div>
+      <div class="row">载荷 <b id="hud-load">满载 AW3</b></div>
+      <div class="row">实际牵引力 <span id="hud-ftrac">0</span> kN</div>
+      <div class="row">电制动 <span id="hud-fed">0</span> kN / 空气 <span id="hud-fair">0</span> kN</div>
+      <div class="row">当前坡度 <span id="hud-grade">0</span>‰ / 曲线半径 <span id="hud-radius">—</span></div>
+    </div>
+
+    <div id="hud-right" class="panel">
+      <div class="row">ATP 监督速度 <b id="hud-vtarget">0</b> km/h</div>
+      <div class="row">距下一站 <b id="hud-dist-station">—</b> m</div>
+      <div class="row">移动授权终点 <b id="hud-dist-ma">—</b> m</div>
+      <div class="row">出站信号 <b id="hud-signal">—</b></div>
+      <div class="row">车门 / 屏蔽门 <b id="hud-doors">关闭</b></div>
+      <div class="row">停车偏差 <b id="hud-stop">—</b></div>
+      <div class="row" id="hud-atp-state"><b>—</b></div>
+    </div>
+
+    <div id="hud-bottom" class="panel">
+      <div id="hud-message">按 W / S 操纵牵引与制动手柄</div>
+      <div class="hint">
+        W/S 牵引±10% · ↑/↓ 制动±10% · Backspace 手柄回零 · T 车门 · R(按住) 退行 ·
+        空格 紧急制动缓解确认 · L 切换载荷(停稳) · C 切换视角 · 1 追尾测试
+      </div>
+      <div class="hint">仿真 <span id="hud-simhz">—</span> Hz · 渲染 <span id="hud-fps">—</span> FPS</div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
